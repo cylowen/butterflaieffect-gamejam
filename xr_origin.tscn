@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm7xgf104611x"]
+[gd_scene load_steps=7 format=3 uid="uid://bm7xgf104611x"]
 
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_yvon8"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_5amvq"]
 [ext_resource type="Material" uid="uid://ds2dpvbpht0ea" path="res://addons/godot-xr-tools/hands/materials/labglove.tres" id="2_dwdwi"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_gsyfl"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_6kewq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4ukn"]
 
@@ -20,6 +21,10 @@ hand_material_override = ExtResource("2_dwdwi")
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("2_gsyfl")]
 
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("4_6kewq")]
+show_laser = 2
+laser_length = 1
+
 [node name="RightHand" type="XRController3D" parent="."]
 tracker = &"right_hand"
 
@@ -27,3 +32,7 @@ tracker = &"right_hand"
 hand_material_override = SubResource("StandardMaterial3D_f4ukn")
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("2_gsyfl")]
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("4_6kewq")]
+show_laser = 2
+laser_length = 1
