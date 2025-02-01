@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=29 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bytcs6fnadbte" path="res://scenes/pickable_bubble.tscn" id="8_mh1ub"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="8_t1qky"]
 [ext_resource type="PackedScene" uid="uid://jfv68v3f6fa1" path="res://scenes/objects/notice_story_node.tscn" id="9_hy56q"]
+[ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,13 +27,13 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uh1ls"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lcb3r"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6efhu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8r63"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_uh1ls")
+albedo_texture = SubResource("ViewportTexture_lcb3r")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -112,7 +113,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.827501, 0.827097, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_6efhu")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8r63")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hologram"]
 collision_layer = 5242881
@@ -157,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.1
 shape = SubResource("BoxShape3D_vsvnf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Room/Wall-1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14233, -0.582179)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21796, -0.582179)
 mesh = SubResource("BoxMesh_comoj")
 
 [node name="Wall-2" type="StaticBody3D" parent="Environment/Room"]
@@ -167,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.1
 shape = SubResource("BoxShape3D_vsvnf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Room/Wall-2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2148, -0.582179)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27517, -0.582179)
 mesh = SubResource("BoxMesh_comoj")
 
 [node name="Wall-3" type="StaticBody3D" parent="Environment/Room"]
@@ -209,7 +210,7 @@ mesh = SubResource("BoxMesh_q53lq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89756, 0.4, -0.252442)
 
 [node name="Bed" type="MeshInstance3D" parent="Environment/Furniture/Bed"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284695, 0, 0.405281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284695, 0, 0.317786)
 mesh = SubResource("BoxMesh_k5wjj")
 skeleton = NodePath("../../../Room")
 
@@ -244,9 +245,15 @@ shape = SubResource("BoxShape3D_ww1d6")
 transform = Transform3D(0.998533, 0.0541485, 0, -0.0541485, 0.998533, 0, 0, 0, 1, 0.723477, 1.01421, -0.429865)
 
 [node name="NoticeStoryNode" parent="Environment/PickableObjects" instance=ExtResource("9_hy56q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.879493, 0.604989, -0.543167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827734, 0.528883, -0.624638)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_s71t3")
+autoplay = true
+
+[node name="TalkAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

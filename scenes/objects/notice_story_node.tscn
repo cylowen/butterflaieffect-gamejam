@@ -7,5 +7,6 @@
 script = ExtResource("1_8ojkq")
 
 [node name="Notice" parent="." instance=ExtResource("1_pxdij")]
+mass = 0.2
 
 [connection signal="picked_up" from="Notice" to="." method="_on_notice_picked_up"]
