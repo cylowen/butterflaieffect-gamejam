@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8gp2b24m0jek"]
+[gd_scene load_steps=4 format=3 uid="uid://b8gp2b24m0jek"]
 
 [ext_resource type="Script" path="res://scenes/story_ui.gd" id="1_ig7p4"]
+[ext_resource type="PackedScene" uid="uid://r6e7ebc618hr" path="res://scenes/story_article.tscn" id="2_td5bb"]
+[ext_resource type="PackedScene" uid="uid://b8hfewa3red2u" path="res://scenes/story_article_small.tscn" id="3_imssv"]
 
 [node name="StoryUI" type="CanvasLayer"]
 script = ExtResource("1_ig7p4")
@@ -22,29 +24,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.128091, 0.154962, 0.424125, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="Current" parent="Control" instance=ExtResource("2_td5bb")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+offset_left = 100.0
+offset_top = 75.0
+offset_right = -602.0
+offset_bottom = -73.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
-layout_mode = 2
-text = "Dear Self,
-when you feel low, you may say following to yourself as often as you need:
+[node name="Option1" parent="Control" instance=ExtResource("3_imssv")]
+layout_mode = 1
+offset_left = 600.0
+offset_top = 75.0
+offset_right = -102.0
+offset_bottom = -348.0
 
-Your are not alone!
-You got a super community!
-You belong!
-You are ok with how you feel!
-You are queer enough!
-You are enough!
-
-Be gentle with you!"
-fit_content = true
+[node name="Option2" parent="Control" instance=ExtResource("3_imssv")]
+layout_mode = 1
+offset_left = 600.0
+offset_top = 350.0
+offset_right = -102.0
+offset_bottom = -73.0
