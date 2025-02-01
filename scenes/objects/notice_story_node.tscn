@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://jfv68v3f6fa1"]
+
+[ext_resource type="Script" path="res://scenes/objects/notice_story_node.gd" id="1_8ojkq"]
+[ext_resource type="PackedScene" uid="uid://b5gnvonfglfth" path="res://scenes/objects/notice.tscn" id="1_pxdij"]
+
+[node name="NoticeStoryNode" type="Node3D"]
+script = ExtResource("1_8ojkq")
+
+[node name="Notice" parent="." instance=ExtResource("1_pxdij")]
+
+[connection signal="picked_up" from="Notice" to="." method="_on_notice_picked_up"]

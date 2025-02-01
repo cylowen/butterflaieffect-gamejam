@@ -28,17 +28,8 @@ func _load_text(path):
 	else:
 		print("Error: Could not open text file.", path)
 
-func _on_bubble_timer_timeout() -> void:
-	var new_bubble = bubble.instantiate()
-	#TO DO: pass that name ...
-	var x_location = randf_range(-0.8, 0.8)
-	var y_location = randf_range(0.2, 1.8)
-	var z_location = randf_range(-0.8, 0.8)
-	add_child(new_bubble)
-	new_bubble.global_position = Vector3(x_location,y_location,z_location)
 
-
-	
-
-func _on_bubble_timer_child_entered_tree(node: Node) -> void:
-	pass # Replace with function body.
+func _on_timer_timeout() -> void:
+	#GameManager.NOTICE_STATE = "worst"
+	#SignalManager.emit_signal("change_scene")
+	pass

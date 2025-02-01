@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="6_gdnwr"]
 [ext_resource type="PackedScene" uid="uid://bytcs6fnadbte" path="res://scenes/pickable_bubble.tscn" id="8_mh1ub"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="8_t1qky"]
-[ext_resource type="PackedScene" uid="uid://b5gnvonfglfth" path="res://scenes/objects/notice.tscn" id="9_qs813"]
+[ext_resource type="PackedScene" uid="uid://jfv68v3f6fa1" path="res://scenes/objects/notice_story_node.tscn" id="9_hy56q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,13 +26,13 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_os1it"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uh1ls"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xrv4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6efhu"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_os1it")
+albedo_texture = SubResource("ViewportTexture_uh1ls")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -94,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3057, 0.115057)
 [node name="Hologram" type="Node3D" parent="."]
 transform = Transform3D(0.999613, 0.027817, 0, -0.027817, 0.999613, 0, 0, 0, 1, 0.714045, 0.597035, -1.11257)
 script = ExtResource("6_gdnwr")
+screen_size = Vector2(3, 2)
 scene = ExtResource("6_d7sfx")
 viewport_size = Vector2(1280, 768)
 alpha_scissor_threshold = 0.25
@@ -111,7 +112,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.827501, 0.827097, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_6xrv4")
+surface_material_override/0 = SubResource("StandardMaterial3D_6efhu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hologram"]
 collision_layer = 5242881
@@ -242,7 +243,10 @@ shape = SubResource("BoxShape3D_ww1d6")
 [node name="PickableBubble2" parent="Environment/PickableObjects" instance=ExtResource("8_mh1ub")]
 transform = Transform3D(0.998533, 0.0541485, 0, -0.0541485, 0.998533, 0, 0, 0, 1, 0.723477, 1.01421, -0.429865)
 
-[node name="Node3D" type="Node3D" parent="Environment/PickableObjects"]
+[node name="NoticeStoryNode" parent="Environment/PickableObjects" instance=ExtResource("9_hy56q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.879493, 0.604989, -0.543167)
 
-[node name="Notice" parent="Environment/PickableObjects/Node3D" instance=ExtResource("9_qs813")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774432, 0.524322, -0.626992)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
