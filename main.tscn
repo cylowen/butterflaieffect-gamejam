@@ -24,15 +24,15 @@ tonemap_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_7uy88"]
 resource_local_to_scene = true
-size = Vector2(3, 2)
+size = Vector2(1280, 768)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_os1it"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_e5lu8"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xrv4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7klkr"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_os1it")
+albedo_texture = SubResource("ViewportTexture_e5lu8")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -94,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3057, 0.115057)
 [node name="Hologram" type="Node3D" parent="."]
 transform = Transform3D(0.999613, 0.027817, 0, -0.027817, 0.999613, 0, 0, 0, 1, 0.714045, 0.597035, -1.11257)
 script = ExtResource("6_gdnwr")
+screen_size = Vector2(3, 2)
 scene = ExtResource("6_d7sfx")
 viewport_size = Vector2(1280, 768)
 alpha_scissor_threshold = 0.25
@@ -106,18 +107,19 @@ disable_3d = true
 transparent_bg = true
 gui_embed_subwindows = true
 size = Vector2i(1280, 768)
+size_2d_override = Vector2i(1152, 600)
 render_target_update_mode = 1
 
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.827501, 0.827097, 0.579485)
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.827501, 0.827097, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_6xrv4")
+surface_material_override/0 = SubResource("StandardMaterial3D_7klkr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hologram"]
 collision_layer = 5242881
 collision_mask = 0
 script = ExtResource("8_t1qky")
-screen_size = Vector2(3, 2)
+screen_size = Vector2(1280, 768)
 viewport_size = Vector2(1280, 768)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hologram/StaticBody3D"]
