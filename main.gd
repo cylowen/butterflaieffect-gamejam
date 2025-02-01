@@ -3,7 +3,6 @@ extends Node3D
 @export var bubble: PackedScene
 @export var box: PackedScene
 
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var talk_audio_stream_player: AudioStreamPlayer = $TalkAudioStreamPlayer
 
 

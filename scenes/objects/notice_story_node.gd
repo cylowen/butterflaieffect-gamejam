@@ -8,7 +8,7 @@ func _on_notice_picked_up(_pickable: Variant) -> void:
 		SignalManager.emit_signal("play_audio", sound_path)
 		print("start sound")
 	else:
-		var sound_path = "res://art/audio/Eske_Leise_003.wav"
+		var sound_path = "res://art/audio/Harriett_DearMe_007.wav"
 		#audio_stream_player.stream = load(sound_path)
 		#audio_stream_player.play()
 		SignalManager.emit_signal("play_audio", sound_path)
