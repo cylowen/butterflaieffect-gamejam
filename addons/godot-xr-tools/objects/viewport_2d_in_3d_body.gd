@@ -2,10 +2,12 @@ extends XRToolsInteractableBody
 
 
 ## Screen size
-@export var screen_size = Vector2(0.21, 0.297)
+@export var screen_size: Vector2
+#= Vector2(0.21, 0.297)
 
 ## Viewport size
-@export var viewport_size = Vector2(420, 594)
+@export var viewport_size: Vector2
+#= Vector2(420, 594)
 
 
 # Current mouse mask

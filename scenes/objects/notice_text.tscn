@@ -1,8 +1,13 @@
-[gd_scene format=3 uid="uid://doarb0f3gdh1g"]
+[gd_scene load_steps=3 format=3 uid="uid://doarb0f3gdh1g"]
+
+[ext_resource type="Script" path="res://scenes/objects/notice_text.gd" id="1_3r5rp"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_hip4j"]
 
 [node name="Notice_Text" type="CanvasLayer"]
+script = ExtResource("1_3r5rp")
 
-[node name="Control" type="Control" parent="."]
+[node name="ControlStart" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="ControlStart"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +27,7 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ControlStart/MarginContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Guten Tag, Personalnummer 94629163!
@@ -33,4 +38,68 @@ Wir danken Ihnen für Ihre jahrelange Treue!
 Mit freundlichen Grüßen
 Kristian Innslow
 (CEO)"
+fit_content = true
+
+[node name="ControlGood" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlGood"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ControlGood/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "DANKE!
+
+Wir sind so froh, dass du schon seit fünf Jahren bei uns bist! Wir danken dir von Herzen für deine unermüdliche Arbeit auf dem Lebenshof, die vielen Kuscheleinheiten bei unseren Schweinen und die Spiele mit unseren Katzen und Hunden. Wir hoffen von ganzem Herzen, dass du noch ganz lange Teil unserer kleinen Familie bleiben wirst!
+"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="ControlGood/MarginContainer"]
+layout_mode = 2
+texture = SubResource("ImageTexture_hip4j")
+
+[node name="ControlWorse" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlWorse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ControlWorse/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Räumen Sie die Ihnen zur Verfügung gestellte Wohneinrichtung zum Ende des Monats!
+
+Aufgrund des staatlichen Beschlusses zur Vergrößerung der KI-Rechenzentren wird Ihr Wohnviertel zum IT-Hauptstandort umgebaut. Dieses Schreiben ist KI-generiert. Es bedarf daher keiner Unterschrift, um rechtsgültig zu sein.
+"
 fit_content = true

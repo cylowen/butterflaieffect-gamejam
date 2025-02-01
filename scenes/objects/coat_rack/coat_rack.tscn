@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbfbtim8itgxe"]
+
+[ext_resource type="Texture2D" uid="uid://crpjy7eqy63tj" path="res://art/pictures/objects/door/haken-BG.png" id="1_is0yg"]
+[ext_resource type="Script" path="res://scenes/objects/coat_rack/coat_rack.gd" id="1_n25cv"]
+[ext_resource type="Texture2D" uid="uid://slg2r616xbpe" path="res://art/pictures/objects/door/happyhat-BG.png" id="3_6c4ig"]
+[ext_resource type="Texture2D" uid="uid://cv74apql86lto" path="res://art/pictures/objects/door/mask-BG.png" id="4_0t52r"]
+[ext_resource type="Texture2D" uid="uid://dcx6ay0e2tl1i" path="res://art/pictures/objects/door/jacket-BG.png" id="5_x71mj"]
+[ext_resource type="Texture2D" uid="uid://1nhr2q4or85j" path="res://art/pictures/objects/door/baseball-BG.png" id="6_2b3dj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yrqvl"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[node name="CoatRack" type="Node3D"]
+script = ExtResource("1_n25cv")
+
+[node name="Hook" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yrqvl")
+
+[node name="HookSpriteStart" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0398943, -1.26081, 0.0503201)
+texture = ExtResource("1_is0yg")
+
+[node name="HookSpriteGood" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0398943, -1.26081, 0.0503201)
+visible = false
+texture = ExtResource("5_x71mj")
+
+[node name="HookSpriteWorse" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0398943, -1.26081, 0.0503201)
+visible = false
+texture = ExtResource("4_0t52r")
+
+[node name="Hook2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414822, 0, 0)
+mesh = SubResource("BoxMesh_yrqvl")
+skeleton = NodePath("")
+
+[node name="Hook2SpriteStart" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.378006, -1.26081, 0.0503201)
+texture = ExtResource("1_is0yg")
+
+[node name="Hook2SpriteGood" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.378006, -1.26081, 0.0503201)
+visible = false
+texture = ExtResource("3_6c4ig")
+
+[node name="Hook2SpriteWorse" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.785049, -1.91313, 0.0503201)
+visible = false
+texture = ExtResource("6_2b3dj")
+
+[node name="Hook2SpriteWorse2" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.369721, -1.25322, 0.0503201)
+visible = false
+texture = ExtResource("1_is0yg")
