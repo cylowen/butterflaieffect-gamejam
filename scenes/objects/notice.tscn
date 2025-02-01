@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5gnvonfglfth"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_7dfug"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_i131l"]
+[ext_resource type="PackedScene" uid="uid://b8gp2b24m0jek" path="res://scenes/story_ui.tscn" id="3_rv54x"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="4_2v1ur"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdk6s"]
+size = Vector3(0.309075, 0.01, 0.430807)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb5g4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xwsn"]
+material = SubResource("StandardMaterial3D_jb5g4")
+size = Vector3(0.3, 0.01, 0.42)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3066s"]
+resource_local_to_scene = true
+size = Vector2(1.6, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_44bue"]
+viewport_path = NodePath("Hologram/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1i68"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_44bue")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nys5e"]
+resource_local_to_scene = true
+size = Vector3(1.55518, 2, 0.02)
+
+[node name="Notice" instance=ExtResource("1_7dfug")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000257631, 0, -0.00378377)
+shape = SubResource("BoxShape3D_vdk6s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_4xwsn")
+
+[node name="Hologram" type="Node3D" parent="." index="2"]
+transform = Transform3D(0.2, 0, 0, 0, 2.38498e-09, 0.2, 0, -0.2, 2.38498e-09, 0, 0, 0)
+script = ExtResource("2_i131l")
+scene = ExtResource("3_rv54x")
+viewport_size = Vector2(1280, 768)
+alpha_scissor_threshold = 0.25
+unshaded = false
+filter = true
+scene_properties_keys = PackedStringArray("story_ui.gd")
+
+[node name="Viewport" type="SubViewport" parent="Hologram" index="0"]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="Hologram" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 8.88178e-16, 0, -8.88178e-16, 1, 0, 9.07639e-10, 0.076113)
+mesh = SubResource("QuadMesh_3066s")
+surface_material_override/0 = SubResource("StandardMaterial3D_r1i68")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hologram" index="2"]
+collision_layer = 5242881
+collision_mask = 0
+script = ExtResource("4_2v1ur")
+screen_size = Vector2(1.6, 2)
+viewport_size = Vector2(512, 512)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hologram/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.66454e-15, 0, -2.66454e-15, 1, -0.00131197, -0.0224358, 0.0307144)
+shape = SubResource("BoxShape3D_nys5e")
