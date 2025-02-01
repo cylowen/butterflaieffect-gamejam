@@ -30,13 +30,13 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5bmfe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x4wba"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ti2a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xuag"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_5bmfe")
+albedo_texture = SubResource("ViewportTexture_x4wba")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -117,7 +117,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.299997, 0.000106332, 0.00132819, 0.000106334, 0.296179, -0.0477288, -0.00132819, 0.0477288, 0.296176, -0.83332, 1.03618, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_1ti2a")
+surface_material_override/0 = SubResource("StandardMaterial3D_4xuag")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hologram/Screen"]
 
@@ -249,7 +249,7 @@ shape = SubResource("BoxShape3D_ww1d6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827734, 0.905621, -0.442743)
 
 [node name="SpeakerPickableObject" parent="Environment/PickableObjects" instance=ExtResource("9_lx0bc")]
-transform = Transform3D(0.857993, 0.000613967, -0.513661, -0.000715585, 1, 0, 0.513661, 0.000367568, 0.857993, 0.78617, 1.127, -0.584297)
+transform = Transform3D(0.857993, 0.000613967, -0.513661, -0.000715585, 1, 2.03727e-10, 0.513661, 0.000367568, 0.857993, 0.796718, 1.21107, -0.72182)
 
 [node name="CoatRack" parent="Environment/PickableObjects" instance=ExtResource("10_pqbbm")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.0272444, 1.98233, 1.05959)
