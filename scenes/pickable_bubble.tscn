@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bytcs6fnadbte"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3h8nj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cc2sd"]
+radius = 0.0965797
+
+[sub_resource type="Shader" id="Shader_od8hy"]
+code = "shader_type spatial;
+
+uniform sampler2D noise_tex;
+uniform vec4 bubble_color: source_color;
+uniform float height_multiplier = 0.1;
+uniform float noise_sample_size = 0.1;
+uniform float animation_speed = 0.1;
+
+varying float height;
+
+float fresnel(vec3 normal, mat4 camera_matrix){
+	vec3 view_direction_world = (camera_matrix * vec4(0.0,0.0,1.0,0.0)).xyz;
+	vec3 normal_world = (camera_matrix * vec4(normal,0.0)).xyz;
+
+	float d = dot(view_direction_world, normal_world);
+	d = abs(d);
+	d = clamp(d, 0.0, 1.0);
+
+	return 1.0 - d;
+}
+
+void vertex(){
+	height = texture(noise_tex, VERTEX.xz * noise_sample_size + vec2(TIME) * animation_speed).r;
+	VERTEX += NORMAL * height * height_multiplier;
+}
+
+void fragment(){
+	ROUGHNESS = mix(0.05, 0.1, 1.0 - height);
+	SPECULAR = height;
+	ALPHA = fresnel(NORMAL, INV_VIEW_MATRIX);
+	ALBEDO = bubble_color.rgb;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_46pb7"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_synsj"]
+seamless = true
+noise = SubResource("FastNoiseLite_46pb7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwc0d"]
+render_priority = 0
+shader = SubResource("Shader_od8hy")
+shader_parameter/bubble_color = Color(0.0125463, 0.21723, 1, 1)
+shader_parameter/height_multiplier = 0.1
+shader_parameter/noise_sample_size = 0.1
+shader_parameter/animation_speed = 0.1
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_synsj")
+
+[sub_resource type="SphereMesh" id="SphereMesh_yr62m"]
+material = SubResource("ShaderMaterial_mwc0d")
+radius = 0.05
+height = 0.1
+
+[node name="PickableBubble" instance=ExtResource("1_3h8nj")]
+mass = 5.0
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_cc2sd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+gi_mode = 2
+mesh = SubResource("SphereMesh_yr62m")
+skeleton = NodePath("../Bubble")
+
+[node name="Bubble" type="Node3D" parent="." index="2"]

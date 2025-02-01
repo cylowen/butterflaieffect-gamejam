@@ -1,0 +1,117 @@
+[gd_scene load_steps=19 format=3 uid="uid://crfd2q7dvve54"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
+[ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
+[ext_resource type="PackedScene" uid="uid://no01k05lpt30" path="res://scenes/story_bubble.tscn" id="2_hm5s5"]
+[ext_resource type="PackedScene" uid="uid://cnylf6w1oem21" path="res://box.tscn" id="3_wjjyi"]
+[ext_resource type="Texture2D" uid="uid://cge32friu7qf3" path="res://art/Skyboxes/AllSkyFree_Sky_MoonBurst_Equirect.png" id="4_86dox"]
+[ext_resource type="PackedScene" uid="uid://b8gp2b24m0jek" path="res://scenes/story_ui.tscn" id="6_d7sfx"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="6_gdnwr"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="8_t1qky"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eqou8"]
+panorama = ExtResource("4_86dox")
+
+[sub_resource type="Sky" id="Sky_1mt8x"]
+sky_material = SubResource("PanoramaSkyMaterial_eqou8")
+
+[sub_resource type="Environment" id="Environment_gb60t"]
+background_mode = 2
+sky = SubResource("Sky_1mt8x")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.86
+glow_bloom = 0.02
+glow_hdr_threshold = 0.44
+fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsvnf"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l3q3"]
+transparency = 1
+albedo_color = Color(0.160784, 0.333333, 0.611765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8eq7f"]
+material = SubResource("StandardMaterial3D_5l3q3")
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7uy88"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ppwpp"]
+viewport_path = NodePath("Viewport2Din3D/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdv3k"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_ppwpp")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_rltcq")
+bubble = ExtResource("2_hm5s5")
+box = ExtResource("3_wjjyi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gb60t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.786821, 0.613459, 0.446698, 1)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vsvnf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_8eq7f")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_xpvk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3057, 0.115057)
+
+[node name="BubbleTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Viewport2Din3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545565, -0.912639)
+script = ExtResource("6_gdnwr")
+scene = ExtResource("6_d7sfx")
+viewport_size = Vector2(1280, 768)
+alpha_scissor_threshold = 0.25
+unshaded = false
+filter = true
+scene_properties_keys = PackedStringArray("story_ui.gd")
+
+[node name="Viewport" type="SubViewport" parent="Viewport2Din3D"]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(1280, 768)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="Viewport2Din3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771957, 0)
+mesh = SubResource("QuadMesh_7uy88")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdv3k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Viewport2Din3D"]
+collision_layer = 5242881
+collision_mask = 0
+script = ExtResource("8_t1qky")
+viewport_size = Vector2(1280, 768)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+shape = SubResource("BoxShape3D_k5wcw")
+
+[connection signal="child_entered_tree" from="BubbleTimer" to="." method="_on_bubble_timer_child_entered_tree"]
+[connection signal="timeout" from="BubbleTimer" to="." method="_on_bubble_timer_timeout"]

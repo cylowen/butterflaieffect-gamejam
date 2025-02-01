@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0h7g18d4trg6"]
+
+[ext_resource type="Material" uid="uid://x3agqfxt2oxi" path="res://art/shader/bubble_shader.tres" id="1_wo2gn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e2wht"]
+material = ExtResource("1_wo2gn")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vjlku"]
+radius = 0.100628
+
+[node name="Bubble" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.001
+gravity_scale = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_e2wht")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_vjlku")

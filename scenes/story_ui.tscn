@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8gp2b24m0jek"]
+
+[ext_resource type="Script" path="res://scenes/story_ui.gd" id="1_ig7p4"]
+
+[node name="StoryUI" type="CanvasLayer"]
+script = ExtResource("1_ig7p4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.128091, 0.154962, 0.424125, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+layout_mode = 2
+text = "Dear Self,
+when you feel low, you may say following to yourself as often as you need:
+
+Your are not alone!
+You got a super community!
+You belong!
+You are ok with how you feel!
+You are queer enough!
+You are enough!
+
+Be gentle with you!"
+fit_content = true
