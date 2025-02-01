@@ -30,18 +30,18 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x4wba"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_53nr2"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xuag"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu48c"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_x4wba")
+albedo_texture = SubResource("ViewportTexture_53nr2")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
 resource_local_to_scene = true
-size = Vector3(3, 2, 0.02)
+size = Vector3(0.9, 0.55, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsvnf"]
 size = Vector3(5, 0.1, 2)
@@ -117,7 +117,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.299997, 0.000106332, 0.00132819, 0.000106334, 0.296179, -0.0477288, -0.00132819, 0.0477288, 0.296176, -0.83332, 1.03618, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_4xuag")
+surface_material_override/0 = SubResource("StandardMaterial3D_nu48c")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hologram/Screen"]
 
@@ -130,7 +130,7 @@ screen_size = Vector2(3, 2)
 viewport_size = Vector2(1280, 768)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hologram/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493179, 0.387775, 0.612265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443404, 0.352658, 0.612265)
 shape = SubResource("BoxShape3D_k5wcw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
