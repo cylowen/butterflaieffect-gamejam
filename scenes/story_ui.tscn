@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8gp2b24m0jek"]
 
 [ext_resource type="Script" path="res://scenes/story_ui.gd" id="1_ig7p4"]
-[ext_resource type="PackedScene" uid="uid://r6e7ebc618hr" path="res://scenes/story_article.tscn" id="2_td5bb"]
-[ext_resource type="PackedScene" uid="uid://b8hfewa3red2u" path="res://scenes/story_article_small.tscn" id="3_imssv"]
+[ext_resource type="PackedScene" path="res://scenes/story_article.tscn" id="2_td5bb"]
+[ext_resource type="PackedScene" path="res://scenes/story_article_small.tscn" id="3_imssv"]
 
 [node name="StoryUI" type="CanvasLayer"]
 script = ExtResource("1_ig7p4")
