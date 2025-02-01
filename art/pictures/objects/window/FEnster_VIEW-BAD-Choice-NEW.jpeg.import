@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxobcvtvusk2v"
-path="res://.godot/imported/hat.jpg-d2deedec70e3696750e375171b52fd82.ctex"
+uid="uid://g5srwdas0dsq"
+path="res://.godot/imported/FEnster_VIEW-BAD-Choice-NEW.jpeg-b33a92ead31571a1ceb0acbbdb92027c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/pictures/objects/cloak/hat.jpg"
-dest_files=["res://.godot/imported/hat.jpg-d2deedec70e3696750e375171b52fd82.ctex"]
+source_file="res://art/pictures/objects/window/FEnster_VIEW-BAD-Choice-NEW.jpeg"
+dest_files=["res://.godot/imported/FEnster_VIEW-BAD-Choice-NEW.jpeg-b33a92ead31571a1ceb0acbbdb92027c.ctex"]
 
 [params]
 

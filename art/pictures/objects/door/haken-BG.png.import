@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3tx50gou80e"
-path.s3tc="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex"
-path.etc2="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"
+uid="uid://crpjy7eqy63tj"
+path.s3tc="res://.godot/imported/haken-BG.png-273a9413b71d3e33a57d599d2aa97c26.s3tc.ctex"
+path.etc2="res://.godot/imported/haken-BG.png-273a9413b71d3e33a57d599d2aa97c26.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/pictures/objects/speaker/speaker-1.jpg"
-dest_files=["res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex", "res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"]
+source_file="res://art/pictures/objects/door/haken-BG.png"
+dest_files=["res://.godot/imported/haken-BG.png-273a9413b71d3e33a57d599d2aa97c26.s3tc.ctex", "res://.godot/imported/haken-BG.png-273a9413b71d3e33a57d599d2aa97c26.etc2.ctex"]
 
 [params]
 

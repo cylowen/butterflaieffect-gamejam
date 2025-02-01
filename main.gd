@@ -7,6 +7,7 @@ extends Node3D
 
 
 var xr_interface: XRInterface
+var state = 0
 
 
 func _ready() -> void:
@@ -33,9 +34,25 @@ func _load_text(path):
 
 
 func _on_timer_timeout() -> void:
-	GameManager.NOTICE_STATE = "worst"
-	GameManager.WINDOW_STATE = "worst"
-	SignalManager.emit_signal("scene_changed")
+	if (state == 0):
+		GameManager.NOTICE_STATE = "worst"
+		GameManager.WINDOW_STATE = "worst"
+		GameManager.COATRACK_STATE = "worst"
+		SignalManager.emit_signal("scene_changed")
+		state += 1
+	elif(state == 1):
+		GameManager.NOTICE_STATE = "good"
+		GameManager.WINDOW_STATE = "good"
+		GameManager.COATRACK_STATE = "good"
+		SignalManager.emit_signal("scene_changed")
+		state += 1
+	elif (state == 2):
+		GameManager.NOTICE_STATE = "start"
+		GameManager.WINDOW_STATE = "start"
+		GameManager.COATRACK_STATE = "start"
+		SignalManager.emit_signal("scene_changed")
+		state = 0
+	
 	print("changed stuff")
 
 func _on_audio_play(text) -> void:

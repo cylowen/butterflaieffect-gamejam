@@ -13,12 +13,12 @@ func _on_scene_changed() -> void:
 	if GameManager.NOTICE_STATE == "start":
 		start_sprite_3d.visible = true
 		worst_sprite_3d.visible = false
-		good_sprite_3d.visibile = false
+		#good_sprite_3d.visibile = false
 		print("change sprite")
 	if GameManager.NOTICE_STATE == "good":
 		start_sprite_3d.visible = false
-		worst_sprite_3d.visible = true
-		good_sprite_3d.visibile = false
+		worst_sprite_3d.visible = false
+		#good_sprite_3d.visibile = true
 		print("change sprite")
 	else:
 		start_sprite_3d.visible = false

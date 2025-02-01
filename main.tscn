@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=32 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cnylf6w1oem21" path="res://box.tscn" id="3_wjjyi"]
 [ext_resource type="PackedScene" uid="uid://b8gp2b24m0jek" path="res://scenes/story_ui.tscn" id="6_d7sfx"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="6_gdnwr"]
-[ext_resource type="PackedScene" uid="uid://bytcs6fnadbte" path="res://scenes/pickable_bubble.tscn" id="8_mh1ub"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="8_t1qky"]
 [ext_resource type="PackedScene" uid="uid://jfv68v3f6fa1" path="res://scenes/objects/notice_story_node.tscn" id="9_hy56q"]
+[ext_resource type="PackedScene" uid="uid://bxmjlvvonpxsb" path="res://scenes/objects/speaker/speaker_pickable_object.tscn" id="9_lx0bc"]
+[ext_resource type="PackedScene" uid="uid://cbfbtim8itgxe" path="res://scenes/objects/coat_rack/coat_rack.tscn" id="10_pqbbm"]
 [ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 [ext_resource type="Texture2D" uid="uid://bx1f7jp4frdf5" path="res://art/pictures/objects/window/Fenster_VIEW-Start-choice-NEW.png" id="11_w3moy"]
 [ext_resource type="Script" path="res://background.gd" id="12_jo2et"]
@@ -29,13 +30,13 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sk7x1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5bmfe"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_moklg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ti2a"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_sk7x1")
+albedo_texture = SubResource("ViewportTexture_5bmfe")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -116,7 +117,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.299997, 0.000106332, 0.00132819, 0.000106334, 0.296179, -0.0477288, -0.00132819, 0.0477288, 0.296176, -0.83332, 1.03618, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_moklg")
+surface_material_override/0 = SubResource("StandardMaterial3D_1ti2a")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hologram/Screen"]
 
@@ -244,15 +245,17 @@ shape = SubResource("BoxShape3D_ww1d6")
 
 [node name="PickableObjects" type="Node3D" parent="Environment"]
 
-[node name="PickableBubble2" parent="Environment/PickableObjects" instance=ExtResource("8_mh1ub")]
-transform = Transform3D(0.998533, 0.0541485, 0, -0.0541485, 0.998533, 0, 0, 0, 1, 0.723477, 1.15861, -0.429865)
-
 [node name="NoticeStoryNode" parent="Environment/PickableObjects" instance=ExtResource("9_hy56q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827734, 0.905621, -0.442743)
 
+[node name="SpeakerPickableObject" parent="Environment/PickableObjects" instance=ExtResource("9_lx0bc")]
+transform = Transform3D(0.857993, 0.000613967, -0.513661, -0.000715585, 1, 0, 0.513661, 0.000367568, 0.857993, 0.78617, 1.127, -0.584297)
+
+[node name="CoatRack" parent="Environment/PickableObjects" instance=ExtResource("10_pqbbm")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.0272444, 1.98233, 1.05959)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
-one_shot = true
 autostart = true
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]

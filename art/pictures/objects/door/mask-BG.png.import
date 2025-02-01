@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3tx50gou80e"
-path.s3tc="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex"
-path.etc2="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"
+uid="uid://cv74apql86lto"
+path.s3tc="res://.godot/imported/mask-BG.png-a93dbc73104854466db53cfa6ea61bae.s3tc.ctex"
+path.etc2="res://.godot/imported/mask-BG.png-a93dbc73104854466db53cfa6ea61bae.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/pictures/objects/speaker/speaker-1.jpg"
-dest_files=["res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex", "res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"]
+source_file="res://art/pictures/objects/door/mask-BG.png"
+dest_files=["res://.godot/imported/mask-BG.png-a93dbc73104854466db53cfa6ea61bae.s3tc.ctex", "res://.godot/imported/mask-BG.png-a93dbc73104854466db53cfa6ea61bae.etc2.ctex"]
 
 [params]
 

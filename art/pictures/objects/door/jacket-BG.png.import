@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3tx50gou80e"
-path.s3tc="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex"
-path.etc2="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"
+uid="uid://dcx6ay0e2tl1i"
+path.s3tc="res://.godot/imported/jacket-BG.png-026adc9c848ab7ab1566f049026db1eb.s3tc.ctex"
+path.etc2="res://.godot/imported/jacket-BG.png-026adc9c848ab7ab1566f049026db1eb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/pictures/objects/speaker/speaker-1.jpg"
-dest_files=["res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex", "res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"]
+source_file="res://art/pictures/objects/door/jacket-BG.png"
+dest_files=["res://.godot/imported/jacket-BG.png-026adc9c848ab7ab1566f049026db1eb.s3tc.ctex", "res://.godot/imported/jacket-BG.png-026adc9c848ab7ab1566f049026db1eb.etc2.ctex"]
 
 [params]
 

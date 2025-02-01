@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3tx50gou80e"
-path.s3tc="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex"
-path.etc2="res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"
+uid="uid://d3k304h4e327v"
+path.s3tc="res://.godot/imported/speaker-BG.png-57254ca98b227ad46bcf92e97ccef29d.s3tc.ctex"
+path.etc2="res://.godot/imported/speaker-BG.png-57254ca98b227ad46bcf92e97ccef29d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/pictures/objects/speaker/speaker-1.jpg"
-dest_files=["res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.s3tc.ctex", "res://.godot/imported/speaker-1.jpg-bdbd9838a45e99c36950caabb6981423.etc2.ctex"]
+source_file="res://art/pictures/objects/speaker/speaker-BG.png"
+dest_files=["res://.godot/imported/speaker-BG.png-57254ca98b227ad46bcf92e97ccef29d.s3tc.ctex", "res://.godot/imported/speaker-BG.png-57254ca98b227ad46bcf92e97ccef29d.etc2.ctex"]
 
 [params]
 
