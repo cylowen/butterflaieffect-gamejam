@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=31 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jfv68v3f6fa1" path="res://scenes/objects/notice_story_node.tscn" id="9_hy56q"]
 [ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 [ext_resource type="Texture2D" uid="uid://bx1f7jp4frdf5" path="res://art/pictures/objects/window/Fenster_VIEW-Start-choice-NEW.png" id="11_w3moy"]
+[ext_resource type="Script" path="res://background.gd" id="12_jo2et"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,13 +29,13 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_db2pi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sk7x1"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d05gw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_moklg"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_db2pi")
+albedo_texture = SubResource("ViewportTexture_sk7x1")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
@@ -115,7 +116,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.299997, 0.000106332, 0.00132819, 0.000106334, 0.296179, -0.0477288, -0.00132819, 0.0477288, 0.296176, -0.83332, 1.03618, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_d05gw")
+surface_material_override/0 = SubResource("StandardMaterial3D_moklg")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hologram/Screen"]
 
@@ -260,8 +261,9 @@ autoplay = true
 
 [node name="TalkAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.11455, 2.35979, 0)
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.64568, 2.80158, 0)
 texture = ExtResource("11_w3moy")
+script = ExtResource("12_jo2et")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

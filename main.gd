@@ -34,6 +34,7 @@ func _load_text(path):
 
 func _on_timer_timeout() -> void:
 	GameManager.NOTICE_STATE = "worst"
+	GameManager.WINDOW_STATE = "worst"
 	SignalManager.emit_signal("scene_changed")
 	print("changed stuff")
 
