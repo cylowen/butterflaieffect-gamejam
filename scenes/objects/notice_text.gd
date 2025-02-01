@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	SignalManager.connect("scene_changed", _on_scene_changed)
+	SignalManager.connect("change_scene", _on_scene_changed)
 
 
 func _on_scene_changed() -> void:

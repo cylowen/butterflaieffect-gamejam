@@ -33,11 +33,12 @@ func _load_text(path):
 
 
 func _on_timer_timeout() -> void:
-	#GameManager.NOTICE_STATE = "worst"
-	#SignalManager.emit_signal("change_scene")
-	pass
+	GameManager.NOTICE_STATE = "worst"
+	SignalManager.emit_signal("scene_changed")
+	print("changed stuff")
 
 func _on_audio_play(text) -> void:
-	talk_audio_stream_player.stream = load(text)
-	talk_audio_stream_player.play()
-	print(text)
+	if !talk_audio_stream_player.playing:
+		talk_audio_stream_player.stream = load(text)
+		talk_audio_stream_player.play()
+		print(text)
