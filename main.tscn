@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=37 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -9,15 +9,19 @@
 [ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 [ext_resource type="Texture2D" uid="uid://bx1f7jp4frdf5" path="res://art/pictures/objects/window/Fenster_VIEW-Start-choice-NEW.png" id="11_w3moy"]
 [ext_resource type="Script" path="res://background.gd" id="12_jo2et"]
+[ext_resource type="Material" uid="uid://df07245j6327x" path="res://art/object_material.tres" id="12_l8qr3"]
 [ext_resource type="PackedScene" uid="uid://ijflo03cwhwu" path="res://art/kenney/ceilingFan.fbx" id="13_vlj1r"]
 [ext_resource type="PackedScene" uid="uid://y4nxii6kh72o" path="res://art/kenney/doorway.fbx" id="14_5n41k"]
 [ext_resource type="PackedScene" uid="uid://dred8ap05lq7x" path="res://art/kenney/lampSquareCeiling.fbx" id="14_l2ue7"]
 [ext_resource type="PackedScene" uid="uid://pfqyiyg1fwb6" path="res://art/kenney/rugSquare.fbx" id="15_kq6ew"]
 [ext_resource type="PackedScene" uid="uid://bfh0q0nmnnypo" path="res://art/kenney/desk.fbx" id="16_uwgk2"]
+[ext_resource type="PackedScene" uid="uid://dmj4opwy6jebe" path="res://scenes/objects/fotos/foto_1_pickable_object.tscn" id="16_v3ym6"]
 [ext_resource type="PackedScene" uid="uid://dv521rk1kxd2p" path="res://art/kenney/cabinetBedDrawer.fbx" id="17_1bvvj"]
 [ext_resource type="PackedScene" uid="uid://ck5tslgj6po7o" path="res://scenes/objects/speaker/speaker.tscn" id="17_nuydq"]
+[ext_resource type="PackedScene" uid="uid://g6g4axqrl2w1" path="res://scenes/objects/fotos/foto_2_pickable_object.tscn" id="17_yxoaj"]
 [ext_resource type="PackedScene" uid="uid://bvwl5fkumw4tj" path="res://art/kenney/bedSingle.fbx" id="18_dmokg"]
 [ext_resource type="PackedScene" uid="uid://1vma56llhvj0" path="res://scenes/story_screen.tscn" id="18_ib27m"]
+[ext_resource type="PackedScene" uid="uid://bqc03un0xhpya" path="res://scenes/objects/fotos/foto_3_pickable_object.tscn" id="18_pclxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,7 +36,7 @@ sky = SubResource("Sky_c071c")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsvnf"]
-size = Vector3(5, 0.1, 2)
+size = Vector3(5, 0.452637, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l3q3"]
 albedo_color = Color(0.912826, 0.797126, 0.71672, 1)
@@ -61,7 +65,15 @@ size = Vector3(1.65479, 0.711899, 2.5086)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ukbs"]
 size = Vector3(1.45721, 0.934235, 0.78894)
 
+[sub_resource type="BoxMesh" id="BoxMesh_sk4hr"]
+material = ExtResource("12_l8qr3")
+size = Vector3(0.7, 0.05, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cr8rv"]
+size = Vector3(0.7, 0.05, 0.2)
+
 [node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("1_rltcq")
 bubble = ExtResource("2_hm5s5")
 box = ExtResource("3_wjjyi")
@@ -88,6 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.695859, 3.35557, 0.210379)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103094, 0)
 shape = SubResource("BoxShape3D_vsvnf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Room/Floor"]
@@ -196,16 +209,35 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.552593, 3.99944, 0.25
 [node name="lampSquareCeiling" parent="Environment/Furniture" instance=ExtResource("14_l2ue7")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.701695, 3.48481, 0)
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/Furniture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897743, 1.13651, 1.02314)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Furniture/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0219375)
+mesh = SubResource("BoxMesh_sk4hr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/StaticBody3D2"]
+shape = SubResource("BoxShape3D_cr8rv")
+
 [node name="PickableObjects" type="Node3D" parent="Environment"]
 
 [node name="NoticeStoryNode" parent="Environment/PickableObjects" instance=ExtResource("9_hy56q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573312, 0.760833, -0.605053)
 
 [node name="CoatRack" parent="Environment/PickableObjects" instance=ExtResource("10_pqbbm")]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.0272444, 1.98233, 1.05959)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.335459, 1.98233, 1.05959)
 
 [node name="Speaker" parent="Environment/PickableObjects" instance=ExtResource("17_nuydq")]
 transform = Transform3D(0.557484, 0, -0.830187, 0, 1, 0, 0.830187, 0, 0.557484, 0.828745, 0.971557, -0.583925)
+
+[node name="Foto1PickableObject" parent="Environment/PickableObjects" instance=ExtResource("16_v3ym6")]
+transform = Transform3D(-0.937543, 0, -0.347869, 0, 1, 0, 0.347869, 0, -0.937543, -0.704029, 1.24192, 0.982544)
+
+[node name="Foto1PickableObject2" parent="Environment/PickableObjects" instance=ExtResource("17_yxoaj")]
+transform = Transform3D(-0.945592, 0, 0.325354, 0, 1, 0, -0.325354, 0, -0.945592, -1.12408, 1.24004, 0.987549)
+
+[node name="Foto3PickableObject" parent="Environment/PickableObjects" instance=ExtResource("18_pclxk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.882241, 1.23545, 1.09417)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

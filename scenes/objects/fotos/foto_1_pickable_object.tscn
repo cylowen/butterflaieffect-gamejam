@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmj4opwy6jebe"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_nkyxd"]
+[ext_resource type="Texture2D" uid="uid://bnsvyemshpcug" path="res://art/pictures/objects/Fotos/KI Fotos Good/Good-MG_0024.jpeg" id="2_5mdrq"]
+[ext_resource type="Script" path="res://scenes/objects/fotos/foto_1_pickable_object.gd" id="2_fs151"]
+[ext_resource type="Material" uid="uid://df07245j6327x" path="res://art/object_material.tres" id="2_l3g65"]
+[ext_resource type="Texture2D" uid="uid://c8c66x0f5rl3j" path="res://art/pictures/objects/Fotos/KI Start Bad/Bad-AI_friends.png" id="3_bnos5"]
+[ext_resource type="Texture2D" uid="uid://cb5uh0q3xmfnn" path="res://art/pictures/objects/Fotos/KI Fotos Worst/Worst-AI_dogparty.png" id="5_emjr1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnmm2"]
+size = Vector3(0.2, 0.15, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vig0l"]
+size = Vector3(0.2, 0.15, 0.05)
+
+[node name="Foto1PickableObject" instance=ExtResource("1_nkyxd")]
+script = ExtResource("2_fs151")
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_pnmm2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+material_override = ExtResource("2_l3g65")
+mesh = SubResource("BoxMesh_vig0l")
+
+[node name="foto_bad" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.0263257)
+texture = ExtResource("3_bnos5")
+
+[node name="foto_good" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(0.017, 0, 0, 0, 0.017, 0, 0, 0, 0.017, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("2_5mdrq")
+
+[node name="foto_worst" type="Sprite3D" parent="." index="4"]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("5_emjr1")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dj50bw6q5logk"
+path="res://.godot/imported/Item 1- Start.wav-9b1c8a642807cb23d3f2a27e7970856a.sample"
+
+[deps]
+
+source_file="res://art/audio/Narrator/Item 1- Start.wav"
+dest_files=["res://.godot/imported/Item 1- Start.wav-9b1c8a642807cb23d3f2a27e7970856a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

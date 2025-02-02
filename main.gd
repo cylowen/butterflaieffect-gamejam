@@ -38,18 +38,21 @@ func _on_timer_timeout() -> void:
 		GameManager.NOTICE_STATE = "worst"
 		GameManager.WINDOW_STATE = "worst"
 		GameManager.COATRACK_STATE = "worst"
+		GameManager.FOTO_STATE = "good"
 		SignalManager.emit_signal("scene_changed")
 		state += 1
 	elif(state == 1):
 		GameManager.NOTICE_STATE = "good"
 		GameManager.WINDOW_STATE = "good"
 		GameManager.COATRACK_STATE = "good"
+		GameManager.FOTO_STATE = "worst"
 		SignalManager.emit_signal("scene_changed")
 		state += 1
 	elif (state == 2):
 		GameManager.NOTICE_STATE = "start"
 		GameManager.WINDOW_STATE = "start"
 		GameManager.COATRACK_STATE = "start"
+		GameManager.FOTO_STATE = "start"
 		SignalManager.emit_signal("scene_changed")
 		state = 0
 	
