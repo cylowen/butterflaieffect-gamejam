@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=36 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -15,12 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dred8ap05lq7x" path="res://art/kenney/lampSquareCeiling.fbx" id="14_l2ue7"]
 [ext_resource type="PackedScene" uid="uid://pfqyiyg1fwb6" path="res://art/kenney/rugSquare.fbx" id="15_kq6ew"]
 [ext_resource type="PackedScene" uid="uid://bfh0q0nmnnypo" path="res://art/kenney/desk.fbx" id="16_uwgk2"]
-[ext_resource type="PackedScene" uid="uid://dmj4opwy6jebe" path="res://scenes/objects/fotos/foto_1_pickable_object.tscn" id="16_v3ym6"]
 [ext_resource type="PackedScene" uid="uid://dv521rk1kxd2p" path="res://art/kenney/cabinetBedDrawer.fbx" id="17_1bvvj"]
 [ext_resource type="PackedScene" uid="uid://ck5tslgj6po7o" path="res://scenes/objects/speaker/speaker.tscn" id="17_nuydq"]
 [ext_resource type="PackedScene" uid="uid://g6g4axqrl2w1" path="res://scenes/objects/fotos/foto_2_pickable_object.tscn" id="17_yxoaj"]
 [ext_resource type="PackedScene" uid="uid://bvwl5fkumw4tj" path="res://art/kenney/bedSingle.fbx" id="18_dmokg"]
-[ext_resource type="PackedScene" uid="uid://1vma56llhvj0" path="res://scenes/story_screen.tscn" id="18_ib27m"]
+[ext_resource type="PackedScene" uid="uid://cqwtcemwygs03" path="res://scenes/objects/fotos/foto_1_story_node.tscn" id="18_h6byf"]
 [ext_resource type="PackedScene" uid="uid://bqc03un0xhpya" path="res://scenes/objects/fotos/foto_3_pickable_object.tscn" id="18_pclxk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
@@ -230,21 +229,21 @@ transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 
 [node name="Speaker" parent="Environment/PickableObjects" instance=ExtResource("17_nuydq")]
 transform = Transform3D(0.557484, 0, -0.830187, 0, 1, 0, 0.830187, 0, 0.557484, 0.828745, 0.971557, -0.583925)
 
-[node name="Foto1PickableObject" parent="Environment/PickableObjects" instance=ExtResource("16_v3ym6")]
-transform = Transform3D(-0.937543, 0, -0.347869, 0, 1, 0, 0.347869, 0, -0.937543, -0.704029, 1.24192, 0.982544)
-
 [node name="Foto1PickableObject2" parent="Environment/PickableObjects" instance=ExtResource("17_yxoaj")]
 transform = Transform3D(-0.945592, 0, 0.325354, 0, 1, 0, -0.325354, 0, -0.945592, -1.12408, 1.24004, 0.987549)
 
 [node name="Foto3PickableObject" parent="Environment/PickableObjects" instance=ExtResource("18_pclxk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.882241, 1.23545, 1.09417)
 
+[node name="Foto1StoryNode" parent="Environment/PickableObjects" instance=ExtResource("18_h6byf")]
+transform = Transform3D(-0.812603, 0, -0.582818, 0, 1, 0, 0.582818, 0, -0.812603, -0.689468, 1.26348, 0.960758)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_s71t3")
+volume_db = -22.18
 autoplay = true
 
 [node name="TalkAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -253,8 +252,5 @@ autoplay = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.64568, 2.80158, 0)
 texture = ExtResource("11_w3moy")
 script = ExtResource("12_jo2et")
-
-[node name="Screen" parent="." instance=ExtResource("18_ib27m")]
-transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 1.60161, -0.651208)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

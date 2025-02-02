@@ -23,10 +23,11 @@ func _ready() -> void:
 	load_game_data()
 	
 	screen = STORY_SCREEN.instantiate()
-	screen.position = screen_down
-	screen.rotation.x = 7
-	screen.visible = false
-	tween = screen.create_tween()
+	add_child(screen)
+	screen.position = screen_up
+	screen.rotation.x = deg_to_rad(7)
+	#tween = screen.create_tween()
+	tween = get_tree().create_tween()
 	
 	SignalManager.connect("play_audio", _on_audio_play)
 	SignalManager.connect("item_touched", _on_item_touched)
@@ -41,12 +42,12 @@ func _ready() -> void:
 		print("open xr not initialized")
 
 func _on_item_touched(item_id: String):
+	print_debug("item touched: " + item_id)
 	var item = gamedata[item_id]
-	screen.position = screen_down
-	screen.load_articles(item)
-	#print_debug(item.headline)
-	screen.visible = true
-	tween.tween_property(screen, "position", screen_up, screen_speed)
+	screen.position = screen_up
+	SignalManager.emit_signal("load_articles", item_id, item)
+	#tween.tween_property(screen, "position", screen_up, screen_speed)
+	
 	
 func _on_button_pressed(item_id: String, state: String):
 	match item_id:
@@ -55,6 +56,9 @@ func _on_button_pressed(item_id: String, state: String):
 		GameManager.Items.Hook: GameManager.COATRACK_STATE = state
 		GameManager.Items.Photos: GameManager.FOTO_STATE = state
 		GameManager.Items.Speaker: GameManager.SPEAKER_STATE = state
+	SignalManager.emit_signal("scene_changed")
+	screen.position = screen_down
+	#tween.tween_property(screen, "position", screen_down, screen_speed)
 
 func load_game_data():
 	var file_data = _load_text(data_path)

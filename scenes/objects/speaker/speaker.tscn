@@ -13,3 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199385, 0)
 [node name="UkulelePickableObject" parent="." instance=ExtResource("2_lcsfv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395881, 0)
 visible = false
+
+[connection signal="picked_up" from="SpeakerPickableObject" to="." method="_on_speaker_pickable_object_picked_up"]
+[connection signal="picked_up" from="UkulelePickableObject" to="." method="_on_ukulele_pickable_object_picked_up"]

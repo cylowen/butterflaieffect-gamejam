@@ -16,4 +16,4 @@ func set_content(item_id: String, headline: String, article: String, state: Stri
 	next_state = state
 
 func _on_pressed() -> void:
-	SignalManager.emit("button_pressed", current_item, next_state)
+	SignalManager.emit_signal("button_pressed", current_item, next_state)

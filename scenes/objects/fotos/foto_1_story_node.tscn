@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqwtcemwygs03"]
+
+[ext_resource type="Script" path="res://foto_1_story_node.gd" id="1_38e5f"]
+[ext_resource type="PackedScene" uid="uid://dmj4opwy6jebe" path="res://scenes/objects/fotos/foto_1_pickable_object.tscn" id="2_vah53"]
+
+[node name="Foto1StoryNode" type="Node3D"]
+script = ExtResource("1_38e5f")
+
+[node name="Foto1PickableObject" parent="." instance=ExtResource("2_vah53")]
+
+[connection signal="picked_up" from="Foto1PickableObject" to="." method="_on_foto_1_pickable_object_picked_up"]
