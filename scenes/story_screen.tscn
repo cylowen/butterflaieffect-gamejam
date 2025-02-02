@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://1vma56llhvj0"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_exg20"]
+[ext_resource type="PackedScene" uid="uid://b8gp2b24m0jek" path="res://scenes/story_ui.tscn" id="2_80mjm"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2_shtrg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2x6ya"]
+resource_local_to_scene = true
+size = Vector2(320, 192)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3rq5"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5s3e"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_a3rq5")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ep1wf"]
+resource_local_to_scene = true
+size = Vector3(320, 192, 0.02)
+
+[node name="Screen" type="Node3D"]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0)
+script = ExtResource("1_exg20")
+screen_size = Vector2(320, 192)
+scene = ExtResource("2_80mjm")
+viewport_size = Vector2(1280, 768)
+transparent = 0
+alpha_scissor_threshold = 0.25
+unshaded = true
+filter = true
+scene_properties_keys = PackedStringArray("story_ui.gd")
+
+[node name="Viewport" type="SubViewport" parent="."]
+disable_3d = true
+gui_embed_subwindows = true
+size = Vector2i(1280, 768)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_2x6ya")
+surface_material_override/0 = SubResource("StandardMaterial3D_i5s3e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 5242881
+collision_mask = 0
+script = ExtResource("2_shtrg")
+screen_size = Vector2(320, 192)
+viewport_size = Vector2(1280, 768)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+shape = SubResource("BoxShape3D_ep1wf")

@@ -8,14 +8,11 @@
 script = ExtResource("1_ig7p4")
 
 [node name="Control" type="Control" parent="."]
+layout_direction = 1
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 128.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 768.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -24,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.128091, 0.154962, 0.424125, 1)
+color = Color(0.390007, 0.262892, 0.542699, 1)
 
 [node name="Current" parent="Control" instance=ExtResource("2_td5bb")]
 layout_mode = 1
