@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crfd2q7dvve54"]
+[gd_scene load_steps=37 format=3 uid="uid://crfd2q7dvve54"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rltcq"]
 [ext_resource type="PackedScene" uid="uid://bm7xgf104611x" path="res://xr_origin.tscn" id="1_xpvk2"]
@@ -13,6 +13,13 @@
 [ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 [ext_resource type="Texture2D" uid="uid://bx1f7jp4frdf5" path="res://art/pictures/objects/window/Fenster_VIEW-Start-choice-NEW.png" id="11_w3moy"]
 [ext_resource type="Script" path="res://background.gd" id="12_jo2et"]
+[ext_resource type="PackedScene" uid="uid://ijflo03cwhwu" path="res://art/kenney/ceilingFan.fbx" id="13_vlj1r"]
+[ext_resource type="PackedScene" uid="uid://y4nxii6kh72o" path="res://art/kenney/doorway.fbx" id="14_5n41k"]
+[ext_resource type="PackedScene" uid="uid://dred8ap05lq7x" path="res://art/kenney/lampSquareCeiling.fbx" id="14_l2ue7"]
+[ext_resource type="PackedScene" uid="uid://pfqyiyg1fwb6" path="res://art/kenney/rugSquare.fbx" id="15_kq6ew"]
+[ext_resource type="PackedScene" uid="uid://bfh0q0nmnnypo" path="res://art/kenney/desk.fbx" id="16_uwgk2"]
+[ext_resource type="PackedScene" uid="uid://dv521rk1kxd2p" path="res://art/kenney/cabinetBedDrawer.fbx" id="17_1bvvj"]
+[ext_resource type="PackedScene" uid="uid://bvwl5fkumw4tj" path="res://art/kenney/bedSingle.fbx" id="18_dmokg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,18 +37,18 @@ tonemap_mode = 2
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_53nr2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8qvot"]
 viewport_path = NodePath("Hologram/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu48c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgheq"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_53nr2")
+albedo_texture = SubResource("ViewportTexture_8qvot")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5wcw"]
 resource_local_to_scene = true
-size = Vector3(0.9, 0.55, 0.02)
+size = Vector3(3, 2, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vsvnf"]
 size = Vector3(5, 0.1, 2)
@@ -64,20 +71,14 @@ size = Vector3(5.5, 0.1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_q53lq"]
 size = Vector3(0.8, 0.3, 2.3)
 
-[sub_resource type="BoxMesh" id="BoxMesh_k5wjj"]
-size = Vector3(0.8, 1.2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cuxrk"]
+size = Vector3(0.657715, 0.676941, 0.408264)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ww1d6"]
-size = Vector3(0.8, 1.2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_42j3d"]
+size = Vector3(1.65479, 0.656219, 2.5086)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b3gtc"]
-size = Vector3(0.5, 0.9, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wct7r"]
-size = Vector3(0.5, 0.95, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_g7lxs"]
-size = Vector3(0.8, 1, 1.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ukbs"]
+size = Vector3(1.45721, 0.934235, 0.78894)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rltcq")
@@ -117,7 +118,7 @@ render_target_update_mode = 1
 [node name="Screen" type="MeshInstance3D" parent="Hologram"]
 transform = Transform3D(0.299997, 0.000106332, 0.00132819, 0.000106334, 0.296179, -0.0477288, -0.00132819, 0.0477288, 0.296176, -0.83332, 1.03618, 0.579485)
 mesh = SubResource("QuadMesh_7uy88")
-surface_material_override/0 = SubResource("StandardMaterial3D_nu48c")
+surface_material_override/0 = SubResource("StandardMaterial3D_lgheq")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hologram/Screen"]
 
@@ -134,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443404, 0.352658, 0.612265
 shape = SubResource("BoxShape3D_k5wcw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17945, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.695859, 3.35557, 0.210379)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -202,54 +203,63 @@ transform = Transform3D(1, 0, 0, 0, 1, -8.35187e-23, 0, -8.35187e-23, 1, -0.1497
 mesh = SubResource("BoxMesh_t4ktg")
 
 [node name="Window1" type="CSGMesh3D" parent="Environment/Room/Wall-4/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0.536242, -0.044817, -0.829067)
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0.536242, -0.044817, -0.68541)
 operation = 2
 mesh = SubResource("BoxMesh_q53lq")
 
 [node name="Window2" type="CSGMesh3D" parent="Environment/Room/Wall-4/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, -0.384091, -0.044817, -0.829067)
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, -0.384091, -0.044817, -0.68541)
 operation = 2
 mesh = SubResource("BoxMesh_q53lq")
 
 [node name="Furniture" type="Node3D" parent="Environment"]
 
-[node name="Bed" type="StaticBody3D" parent="Environment/Furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57487, 0.486683, 0.182703)
+[node name="BedDrawer" type="StaticBody3D" parent="Environment/Furniture"]
 
-[node name="Bed" type="MeshInstance3D" parent="Environment/Furniture/Bed"]
-mesh = SubResource("BoxMesh_k5wjj")
-skeleton = NodePath("../../../Room")
+[node name="cabinetBedDrawer" parent="Environment/Furniture/BedDrawer" instance=ExtResource("17_1bvvj")]
+transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.25, 0, -3.01992e-08, 0, -0.2, -0.847542, 0.0407577, -0.422246)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/BedDrawer"]
+transform = Transform3D(1, 0, 0, 0, 1, -0.000628318, 0, 0.000628318, 1, -0.542501, 0.368677, -0.61592)
+shape = SubResource("BoxShape3D_cuxrk")
+
+[node name="Bed" type="StaticBody3D" parent="Environment/Furniture"]
+
+[node name="bedSingle" parent="Environment/Furniture/Bed" instance=ExtResource("18_dmokg")]
+transform = Transform3D(-0.2, 0, -2.71792e-08, 0, 0.23, 0, 3.01992e-08, 0, -0.18, -2.84525, 0, 0.989011)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/Bed"]
-shape = SubResource("BoxShape3D_ww1d6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7937, 0.276108, 0.213428)
+shape = SubResource("BoxShape3D_42j3d")
 
-[node name="BedsideTable" type="StaticBody3D" parent="Environment/Furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.838284, 0.396171, -0.494411)
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Furniture"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Furniture/BedsideTable"]
-mesh = SubResource("BoxMesh_b3gtc")
+[node name="desk" parent="Environment/Furniture/StaticBody3D" instance=ExtResource("16_uwgk2")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.25, 0, 3.01992e-08, 0, -0.2, -0.235022, 0.00643253, -0.255581)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/BedsideTable"]
-shape = SubResource("BoxShape3D_wct7r")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469025, 0.517953, -0.592265)
+shape = SubResource("BoxShape3D_8ukbs")
 
-[node name="Table" type="StaticBody3D" parent="Environment/Furniture"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.21445, 0.4, -0.527152)
+[node name="doorway" parent="Environment/Furniture" instance=ExtResource("14_5n41k")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.23, 0, 0.2, 0, -8.74228e-09, 1.47112, 0.00706208, 0.853973)
 
-[node name="Bed" type="MeshInstance3D" parent="Environment/Furniture/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0666844, 0.112794, 0.0801995)
-mesh = SubResource("BoxMesh_g7lxs")
-skeleton = NodePath("../../../Room")
+[node name="rugSquare" parent="Environment/Furniture" instance=ExtResource("15_kq6ew")]
+transform = Transform3D(-0.3, 0, -1.74846e-08, 0, 0.2, 0, 2.62268e-08, 0, -0.2, -1.46612, 0.0114131, 1.08157)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Furniture/Table"]
-shape = SubResource("BoxShape3D_ww1d6")
+[node name="ceilingFan" parent="Environment/Furniture" instance=ExtResource("13_vlj1r")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.552593, 3.99944, 0.254484)
+
+[node name="lampSquareCeiling" parent="Environment/Furniture" instance=ExtResource("14_l2ue7")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.701695, 3.48481, 0)
 
 [node name="PickableObjects" type="Node3D" parent="Environment"]
 
 [node name="NoticeStoryNode" parent="Environment/PickableObjects" instance=ExtResource("9_hy56q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827734, 0.905621, -0.442743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573312, 0.760833, -0.605053)
 
 [node name="SpeakerPickableObject" parent="Environment/PickableObjects" instance=ExtResource("9_lx0bc")]
-transform = Transform3D(0.857993, 0.000613967, -0.513661, -0.000715585, 1, 2.03727e-10, 0.513661, 0.000367568, 0.857993, 0.796718, 1.21107, -0.72182)
+transform = Transform3D(0.857993, 0.000613967, -0.513661, -0.000715585, 1, 2.03727e-10, 0.513661, 0.000367568, 0.857993, 0.796718, 1.18531, -0.61784)
 
 [node name="CoatRack" parent="Environment/PickableObjects" instance=ExtResource("10_pqbbm")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.0272444, 1.98233, 1.05959)

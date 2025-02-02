@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://qrb70ua7pb1s"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_x3u5m"]
+[ext_resource type="Material" uid="uid://df07245j6327x" path="res://art/object_material.tres" id="2_2gin1"]
+[ext_resource type="Texture2D" uid="uid://b4a4sb3yvhpi" path="res://art/pictures/objects/speaker/speaker-GoodChoice.png" id="2_xvnfo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov7qe"]
+size = Vector3(0.4, 0.75, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rphfw"]
+size = Vector3(0.4, 0.75, 0.2)
+
+[node name="UkulelePickableObject" instance=ExtResource("1_x3u5m")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_ov7qe")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0.100381)
+texture = ExtResource("2_xvnfo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0159748, 0)
+material_override = ExtResource("2_2gin1")
+mesh = SubResource("BoxMesh_rphfw")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, -0.101309)
+texture = ExtResource("2_xvnfo")
