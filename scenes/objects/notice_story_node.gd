@@ -1,8 +1,8 @@
 extends Node3D
 
-var notice_start_sound_path = "res://art/audio/Eske_Leise_003.wav"
-var notice_good_sound_path = "res://art/audio/Harriett_DearMe_007.wav"
-var notice_worst_sound_path = "res://art/audio/Eske_Leise_003.wav"
+var notice_start_sound_path = "res://art/audio/Narrator/Item 1- Start.wav"
+var notice_good_sound_path = "res://art/audio/Narrator/Item 1- Good.wav"
+var notice_worst_sound_path = "res://art/audio/Narrator/Item 1- worst.wav"
 
 func _on_notice_picked_up(_pickable: Variant) -> void:
 	if GameManager.NOTICE_STATE == "start":

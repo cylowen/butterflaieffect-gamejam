@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dljwkc5dur4jt"]
+
+[ext_resource type="Script" path="res://scenes/objects/fotos/foto_2.gd" id="1_r21lk"]
+[ext_resource type="PackedScene" uid="uid://dmj4opwy6jebe" path="res://scenes/objects/fotos/foto_1_pickable_object.tscn" id="1_sxalv"]
+[ext_resource type="Texture2D" uid="uid://b30hh5o1p07uc" path="res://art/pictures/objects/Fotos/KI Start Bad/Bad-Item_KIgeneriertesFoto.png" id="2_twsle"]
+[ext_resource type="Texture2D" uid="uid://b4qsack3f44di" path="res://art/pictures/objects/Fotos/KI Fotos Good/Good-pexels-askar-abayev-5638615.jpg" id="3_h4wl4"]
+[ext_resource type="Texture2D" uid="uid://dhafa6gpry748" path="res://art/pictures/objects/Fotos/KI Fotos Worst/Worst-AI_fantasy.png" id="4_vdpng"]
+
+[node name="Foto2" type="Node3D"]
+script = ExtResource("1_r21lk")
+
+[node name="Foto1PickableObject" parent="." instance=ExtResource("1_sxalv")]
+
+[node name="foto_bad" type="Sprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0.0263257)
+texture = ExtResource("2_twsle")
+
+[node name="foto_good" type="Sprite3D" parent="."]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("3_h4wl4")
+
+[node name="foto_worst" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("4_vdpng")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl7ceo41e0njr"]
+
+[ext_resource type="PackedScene" uid="uid://dmj4opwy6jebe" path="res://scenes/objects/fotos/foto_1_pickable_object.tscn" id="1_hgf7b"]
+[ext_resource type="Script" path="res://scenes/objects/fotos/foto_1.gd" id="1_udq0l"]
+[ext_resource type="Texture2D" uid="uid://bnsvyemshpcug" path="res://art/pictures/objects/Fotos/KI Fotos Good/Good-MG_0024.jpeg" id="2_5mdrq"]
+[ext_resource type="Texture2D" uid="uid://c8c66x0f5rl3j" path="res://art/pictures/objects/Fotos/KI Start Bad/Bad-AI_friends.png" id="3_bnos5"]
+[ext_resource type="Texture2D" uid="uid://cb5uh0q3xmfnn" path="res://art/pictures/objects/Fotos/KI Fotos Worst/Worst-AI_dogparty.png" id="5_emjr1"]
+
+[node name="Foto1" type="Node3D"]
+script = ExtResource("1_udq0l")
+
+[node name="Foto1PickableObject" parent="." instance=ExtResource("1_hgf7b")]
+
+[node name="foto_bad" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.0263257)
+texture = ExtResource("3_bnos5")
+
+[node name="foto_good" type="Sprite3D" parent="."]
+transform = Transform3D(0.017, 0, 0, 0, 0.017, 0, 0, 0, 0.017, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("2_5mdrq")
+
+[node name="foto_worst" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0.0263257)
+visible = false
+texture = ExtResource("5_emjr1")

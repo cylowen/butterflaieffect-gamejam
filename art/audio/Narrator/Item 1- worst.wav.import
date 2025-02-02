@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dishm6hg2x50c"
+path="res://.godot/imported/Item 1- worst.wav-ee04f5badd45a22b4f827949a21e7123.sample"
+
+[deps]
+
+source_file="res://art/audio/Narrator/Item 1- worst.wav"
+dest_files=["res://.godot/imported/Item 1- worst.wav-ee04f5badd45a22b4f827949a21e7123.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
