@@ -76,3 +76,5 @@ Be gentle with you!"
 shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

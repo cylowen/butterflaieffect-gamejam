@@ -1,0 +1,75 @@
+{
+	"items": {
+		"termination": {
+			"start": {
+				"headline": "Verlieren jetzt alle ihre Jobs?",
+				"article": "Durch den gezielten branchenübergreifenden Einsatz von KI wurden deutschlandweit 15 Mio. Arbeitsstellen gestrichen. Insbesondere Berufe mit iterativen Aufgaben und Projektmanagement sind betroffen. Berufe, die als systemrelevant galten, wurden ausnahmslos durch Maschinen ersetzt."
+			},
+			"good": {
+				"headline": "Bedingungsloses Grundeinkommen kommt!",
+				"article": "Der gezielte Einsatz von KI hat es geschafft, die Wirtschaft branchenübergreifend florieren zu lassen. Mit einer Grundversorgung vom Staat wird jeder Person die Möglichkeit gegeben, sich frei zu entfalten. Dabei wird auf den Aufschwung des Kulturlebens und ehrenamtliche Tätigkeiten im sozialen Bereich gesetzt."
+			},
+			"worst": {
+				"headline": "Maschinen übernehmen den gesamten Arbeitsmarkt",
+				"article": "Der Mensch ist ersetzbar: Durch den jüngsten Beschluss werden fast ausnahmslos Arbeitsstellen durch KI ersetzt. Viele Bereiche werden dadurch effizienter und es kann mehr Leistung für die Gesamtwirtschaft erbracht werden.",
+				"state": "worst"
+			}
+		},
+		"window": {
+			"start": {
+				"headline": "Belastung der Umwelt durch Einsatz von KI steigt",
+				"article": "Bereits 2019 fanden Forschende heraus, dass das KI-Training größerer KI-Modelle fast 300.000 kg CO2 ausstoßen und damit das Fünffache eines Autos über seine gesamte Lebensdauer. Da die Anzahl der Anwendungen immer weiter steigt, steigt auch der CO2-Ausstoß immer weiter - und das neben dem immensen Verbrauch weiterer Ressourcen wie Wasser und den wertvollen Rohstoffen Kupfer und Lithium."
+			},
+			"good": {
+				"headline": "Programm „KI für Umwelt und Klima“ erfolgreich umgesetzt",
+				"article": "Ein weiterer Meilenstein im KI-Einsatz ist erreicht. Erstmals kann durch den Einsatz intelligenter Systeme weltweit mehr Energie erzeugt als verbraucht werden. Die Grundlage dafür bietet die Effizienzberechnung von Ressourceneinsatz sowie die optimale Ausrichtung Erneuerbarer Energien an Umweltfaktoren."
+			},
+			"worst": {
+				"headline": "Weitere Atomunfälle gemeldet",
+				"article": "Das Leck an Reaktor 4 im Atomkraftwerk Catas Trophee konnte nicht geschlossen werden. Im Radius von 15 km um den Reaktor muss die Bevölkerung evakuiert werden. Es ist bereits der dritte Atomunfall in diesem Monat an reaktivierten AKWs. Diese wurden wieder in Betrieb genommen, um den Energiebedarf von KI-Anwendungen zu decken."
+			}
+		},
+		"hook": {
+			"start": {
+				"headline": "Social Score - Wie er unser Leben beeinflusst",
+				"article": "Die Einführung des Social Score hat unser privates und berufliches Leben verändert. Jüngste Umfragen ergaben, dass 72% der Befragten Freundschaften wegen des niedrigen Scores des anderen beendeten. Die Spaltung der Gesellschaft zeigt sich auch im beruflichen Kontext - Personen mit niedrigem Score berichten von Arbeitslosigkeit."
+			},
+			"good": {
+				"headline": "Regelungen zur KI-gesteuerten Überwachung in Kraft getreten",
+				"article": "Lange wurde über die Gesetze gegen die Totalüberwachung diskutiert - nun treten sie für die Sicherheit der Bevölkerung in Kraft. Kernpunkte der Regelung sind Datenschutz und Kontrolle der Überwachungsorgane durch das neu gegründete Institut für KI-Sicherheit, an dem Menschen aus allen Bevölkerungsgruppen beteiligt sind."
+			},
+			"worst": {
+				"headline": "Katastrophale Zustände als Folge der Überwachung",
+				"article": "Erneut kam es zu Ausschreitungen von Radikalen in den Vierteln für Menschen mit niedrigem Score. Grund für die Zerstörungswut ist der erneute Ausbau der Überwachung. So fordern anonyme Schriftzüge den vollständigen Abbau der Sicherheitskameras und die Abschaffung des Social Score."
+			}
+		},
+		"photos": {
+			"start": {
+				"headline": "Über die Hälfte aller Bilder im Netz KI-generiert",
+				"article": "Was ist noch echt im Internet? Eine Hochrechnung hat gezeigt, dass über die Hälfte der im Social Web existierenden Bilder mithilfe einer Künstlichen Intelligenz erstellt wurde. Durch einfache Zugänge lassen sich schnell Bilder generieren, retuschieren und manipulieren."
+			},
+			"good": {
+				"headline": "KI-generierte Bildern jetzt kennzeichnungspflichtig",
+				"article": "Weitere Verordnungen des AI Acts sind nun verbindlich: Künftig müssen alle mit Hilfe von KI generierten Bilder klar gekennzeichnet sein. Dies gilt auch für Filter- und Retuschierhilfen."
+			},
+			"worst": {
+				"headline": "Kulturübergreifendes Schönheitsideal berechnet",
+				"article": "In der Attraktivitätsforschung wurde nun ein weltweiter Standard festgelegt. Dank KI-Berechnung konnten Daten aus aller Welt zusammenfließen, die ein Ideal darstellen. Künftige Anwendungsgebiete wären die ästhetische Aufbereitung in den Medien sowie Vorgaben für die Preisverleihung Mister und Miss Universe."
+			}
+		},
+		"speaker": {
+			"start": {
+				"headline": "AI killed the Radio Star",
+				"article": "Die heutigen Hörgewohnheiten haben sich verändert - der Trend: kürzer, schneller und angepasster. Das ist der Output, den die Algorithmen erzeugen. So müssen sich auch die Kunstschaffende anpassen, um in der Branche Fuß fassen zu können."
+			},
+			"good": {
+				"headline": "Rechte von Künstlern gestärkt",
+				"article": "Die Kennzeichnung eines durch KI entstandenen Werks ist nun verpflichtend. Das gilt für den gesamten Kulturbereich. Zudem haben generative KIs keinen Zugang mehr zu urheberrechtlich geschützten Werken. Die Branche erlebt einen Aufschwung, welcher von Fördergelder verschiedener Institutionen bereichert wird."
+			},
+			"worst": {
+				"headline": "Das Ende von menschenkreierter Kunst",
+				"article": "Bereits seit Jahren werden die Charts von KI-Hits dominiert. Für Kunstschaffende war dies fatal, denn finanzielle Einkünfte wurden immer geringer. Nun hat die aktuelle Regierung die kulturelle Förderung eingestellt - Konzerthallen und Kreativräume werden umgebaut."
+			}
+		}
+	}
+}
