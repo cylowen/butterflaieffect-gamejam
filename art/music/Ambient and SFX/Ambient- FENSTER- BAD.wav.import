@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcync56t8cly4"
+path="res://.godot/imported/Ambient- FENSTER- BAD.wav-e9c346d01e44648b201ed0fc2ab607ce.sample"
+
+[deps]
+
+source_file="res://art/music/Ambient and SFX/Ambient- FENSTER- BAD.wav"
+dest_files=["res://.godot/imported/Ambient- FENSTER- BAD.wav-e9c346d01e44648b201ed0fc2ab607ce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

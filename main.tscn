@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cnylf6w1oem21" path="res://box.tscn" id="3_wjjyi"]
 [ext_resource type="PackedScene" uid="uid://jfv68v3f6fa1" path="res://scenes/objects/notice_story_node.tscn" id="9_hy56q"]
 [ext_resource type="PackedScene" uid="uid://cbfbtim8itgxe" path="res://scenes/objects/coat_rack/coat_rack.tscn" id="10_pqbbm"]
-[ext_resource type="AudioStream" uid="uid://q3go6u0roehi" path="res://art/music/Mesmerizing Galaxy Loop.mp3" id="10_s71t3"]
 [ext_resource type="Texture2D" uid="uid://bx1f7jp4frdf5" path="res://art/pictures/objects/window/Fenster_VIEW-Start-choice-NEW.png" id="11_w3moy"]
 [ext_resource type="Script" path="res://background.gd" id="12_jo2et"]
 [ext_resource type="Material" uid="uid://df07245j6327x" path="res://art/object_material.tres" id="12_l8qr3"]
@@ -21,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bvwl5fkumw4tj" path="res://art/kenney/bedSingle.fbx" id="18_dmokg"]
 [ext_resource type="PackedScene" uid="uid://cqwtcemwygs03" path="res://scenes/objects/fotos/foto_1_story_node.tscn" id="18_h6byf"]
 [ext_resource type="PackedScene" uid="uid://bqc03un0xhpya" path="res://scenes/objects/fotos/foto_3_pickable_object.tscn" id="18_pclxk"]
+[ext_resource type="AudioStream" uid="uid://dlmgdaov4gfd7" path="res://art/music/Ambient and SFX/Ambient- FENSTER- START.wav" id="19_x253r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqw42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -242,7 +242,7 @@ transform = Transform3D(-0.812603, 0, -0.582818, 0, 1, 0, 0.582818, 0, -0.812603
 wait_time = 5.0
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_s71t3")
+stream = ExtResource("19_x253r")
 volume_db = -22.18
 autoplay = true
 
@@ -254,3 +254,4 @@ texture = ExtResource("11_w3moy")
 script = ExtResource("12_jo2et")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="MusicAudioStreamPlayer" to="." method="_on_music_audio_stream_player_finished"]

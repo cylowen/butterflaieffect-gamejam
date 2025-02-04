@@ -6,6 +6,8 @@ extends Node3D
 @export var screen_up: Vector3 = Vector3(0.275, 1.66, -0.85)
 
 @onready var talk_audio_stream_player: AudioStreamPlayer = $TalkAudioStreamPlayer
+@onready var music_audio_stream_player: AudioStreamPlayer = $MusicAudioStreamPlayer
+
 
 const STORY_SCREEN: PackedScene = preload("res://scenes/story_screen.tscn")
 
@@ -16,7 +18,7 @@ var xr_interface: XRInterface
 
 var gamedata
 var screen
-var tween
+#var tween
 
 func _ready() -> void:
 	randomize()
@@ -24,14 +26,15 @@ func _ready() -> void:
 	
 	screen = STORY_SCREEN.instantiate()
 	add_child(screen)
-	screen.position = screen_up
+	screen.position = screen_down
 	screen.rotation.x = deg_to_rad(7)
 	#tween = screen.create_tween()
-	tween = get_tree().create_tween()
+	#tween = get_tree().create_tween()
 	
 	SignalManager.connect("play_audio", _on_audio_play)
 	SignalManager.connect("item_touched", _on_item_touched)
 	SignalManager.connect("button_pressed", _on_button_pressed)
+	SignalManager.connect("scene_changed", _on_scene_changed)
 	
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -52,10 +55,11 @@ func _on_item_touched(item_id: String):
 func _on_button_pressed(item_id: String, state: String):
 	match item_id:
 		GameManager.Items.Termination: GameManager.NOTICE_STATE = state
-		GameManager.Items.Window: GameManager.WINDOW_STATE = state
 		GameManager.Items.Hook: GameManager.COATRACK_STATE = state
 		GameManager.Items.Photos: GameManager.FOTO_STATE = state
 		GameManager.Items.Speaker: GameManager.SPEAKER_STATE = state
+	GameManager.WINDOW_STATE = state
+	GameManager.COATRACK_STATE = state
 	SignalManager.emit_signal("scene_changed")
 	screen.position = screen_down
 	#tween.tween_property(screen, "position", screen_down, screen_speed)
@@ -103,3 +107,24 @@ func _on_audio_play(text) -> void:
 		talk_audio_stream_player.stream = load(text)
 		talk_audio_stream_player.play()
 		print(text)
+
+func _on_scene_changed() -> void:
+	#const AMBIENT___FENSTER__GOOD = preload("res://art/music/Ambient and SFX/Ambient - FENSTER- GOOD.wav")
+	#const AMBIENT__FENSTER__BAD = preload("res://art/music/Ambient and SFX/Ambient- FENSTER- BAD.wav")
+	#const AMBIENT__FENSTER__START = preload("res://art/music/Ambient and SFX/Ambient- FENSTER- START.wav")
+	if GameManager.WINDOW_STATE == "start":
+		music_audio_stream_player.stream = load("res://art/music/Ambient and SFX/Ambient- FENSTER- START.wav")
+		music_audio_stream_player.play()
+		print("change window sound")
+	if GameManager.WINDOW_STATE == "good":
+		music_audio_stream_player.stream = load("res://art/music/Ambient and SFX/Ambient - FENSTER- GOOD.wav")
+		music_audio_stream_player.play()
+		print("change window sound")
+	if GameManager.WINDOW_STATE == "worst":
+		music_audio_stream_player.stream = load("res://art/music/Ambient and SFX/Ambient- FENSTER- BAD.wav")
+		music_audio_stream_player.play()
+		print("change window sound")
+
+
+func _on_music_audio_stream_player_finished() -> void:
+	music_audio_stream_player.play()
